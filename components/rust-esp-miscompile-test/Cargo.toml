@@ -9,6 +9,7 @@ resolver = "2"
 crate-type = ["staticlib"]
 
 [profile.release]
+# Comment out opt-level to prevent mis-compile
 opt-level = "s"
 
 [profile.dev]
