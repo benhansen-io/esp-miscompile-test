@@ -65,7 +65,8 @@ ExternalProject_Add(
         CARGO_CMAKE_BUILD_SDKCONFIG=${sdkconfig}
         CARGO_CMAKE_BUILD_ESP_IDF=${idf_path}
         CARGO_CMAKE_BUILD_COMPILER=${CMAKE_C_COMPILER}
-        RUSTFLAGS=${ESP_RUSTFLAGS}
+        RUSTFLAGS=${ESP_RUSTFLAGS} # Changing to below also fixes the miscompilation
+        #RUSTFLAGS=-Ctarget-feature=-loop
         cargo build --target ${RUST_TARGET} --target-dir ${CARGO_TARGET_DIR} ${CARGO_BUILD_ARG} ${CARGO_BUILD_STD_ARG}
     INSTALL_COMMAND ""
     BUILD_ALWAYS TRUE
